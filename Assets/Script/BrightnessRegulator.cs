@@ -3,19 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Point_Add
-{
-    public int PointCount = 0;
-
-    public int PointPlus(int i)
-    {
-        this.PointCount+=i;
-
-        return this.PointCount;
-    }
-}
-
-
 public class BrightnessRegulator : MonoBehaviour
 {
     Material myMaterial;
@@ -30,37 +17,30 @@ public class BrightnessRegulator : MonoBehaviour
 
     Color defaultColor = Color.white;
 
-    Point_Add pc = new Point_Add();
 
-    private GameObject PointCountText;
 
     // Use this for initialization
     void Start()
     {
-        this.PointCountText = GameObject.Find("PointCountText");
 
         if (tag == "SmallStarTag")
         {
             this.defaultColor = Color.white;
-            pc.PointPlus(10);
         }
 
         else if (tag == "LargeStarTag")
         {
             this.defaultColor = Color.yellow;
-            pc.PointPlus(150);
         }
 
         else if (tag == "SmallCloudTag")
         {
             this.defaultColor = Color.cyan;
-            pc.PointPlus(30);
         }
 
         else if (tag == "LargeCloudTag")
         {
             this.defaultColor = Color.cyan;
-            pc.PointPlus(500);
         }
 
 
@@ -72,7 +52,6 @@ public class BrightnessRegulator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.PointCountText.GetComponent<Text>().text = "得点" + pc.PointCount;
 
         if (this.degree >= 0)
         {
@@ -83,6 +62,7 @@ public class BrightnessRegulator : MonoBehaviour
 
             this.degree -= this.speed;
         }
+
     }
 
     void OnCollisionEnter(Collision other)
