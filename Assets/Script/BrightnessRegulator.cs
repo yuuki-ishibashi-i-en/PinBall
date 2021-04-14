@@ -62,7 +62,6 @@ public class BrightnessRegulator : MonoBehaviour
 
             this.degree -= this.speed;
         }
-
     }
 
     void OnCollisionEnter(Collision other)

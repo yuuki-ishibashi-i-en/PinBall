@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Point_Add
+public class PointAdd
 {
     public int PointCount = 0;
 
@@ -20,7 +20,7 @@ public class PointControl : MonoBehaviour
 
     private GameObject PointCountText;
 
-    Point_Add pc = new Point_Add();
+    PointAdd pc = new PointAdd();
 
     // Start is called before the first frame update
     void Start()
@@ -32,9 +32,6 @@ public class PointControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        this.PointCountText.GetComponent<Text>().text = "得点" + pc.PointCount;
-
     }
 
     void OnCollisionEnter(Collision other)
@@ -58,6 +55,8 @@ public class PointControl : MonoBehaviour
         {
             pc.PointPlus(200);
         }
+
+        this.PointCountText.GetComponent<Text>().text = "得点" + pc.PointCount;
 
     }
 }
